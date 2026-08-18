@@ -9,7 +9,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
     // No Prisma 7, passas um objeto com a URL diretamente para o adaptador.
     // Ele vai criar a base de dados em memória partilhada de forma automática por trás.
     const adapter = new PrismaBetterSqlite3({
-      url: process.env.DATABASE_URL || 'file:./dev.db',
+      url: process.env.DATABASE_URL || 'file:./local.db',
     });
 
     // Injeta o adaptador configurado no motor do Prisma Client

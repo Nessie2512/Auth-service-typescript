@@ -12,7 +12,7 @@ generator client {
   previewFeatures = ["driverAdapters"] 
 }
 
-model statement {
+model user {
   id    Int    @id @default(autoincrement())
   uuid String @unique
   username  String

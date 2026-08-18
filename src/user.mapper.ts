@@ -4,13 +4,14 @@ import { User } from "./user.entity"
 
 export class userMapper{
 
-  public static  toEntity(rawData:any){
+  public static  toEntity(rawData:User){
         
     return User.create
         (            
-         rawData.uuid,   
-         rawData.username,
-         rawData.email,
+         rawData.UUId,   
+         rawData.Username,
+         rawData.Email,
+         rawData.password,
         )
     }
 
@@ -19,9 +20,9 @@ export class userMapper{
         return{
 
             uuid:domianEntity.UUId,
-            document:domianEntity.Username,
-            creditcard:domianEntity.Email,
-            valeu:+domianEntity.password
+            username:domianEntity.Username,
+            email:domianEntity.Email,
+            password:domianEntity.password
 
         }
     }
