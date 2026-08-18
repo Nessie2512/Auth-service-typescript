@@ -5,6 +5,8 @@ import { PrismaModule } from './prisma/prisma.module';
 import { register } from './register.usecase';
 import { IUserRepository } from './user.repository';
 import { prismaRepository } from './prisma.repo';
+import { hashService } from './hashService';
+import { bycryptHashingService } from './bycryptHashing.service';
 
 @Module({
   imports: [PrismaModule],
@@ -16,6 +18,11 @@ import { prismaRepository } from './prisma.repo';
     {
       provide: IUserRepository,
       useClass:prismaRepository
+    },
+
+    {
+      provide: hashService,
+      useClass: bycryptHashingService
     }
 
   ],
