@@ -4,7 +4,9 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   
   
-  userRegister(): string {
-    return 'Hello World!';
+  userRegister(data:any): string {
+
+    console.log(data)
+    return 'Hello World!,';
   }
 }
