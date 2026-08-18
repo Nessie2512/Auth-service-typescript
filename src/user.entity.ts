@@ -39,6 +39,10 @@ export class User extends entity<userType>{
         return this.props.username;
     }
 
+    public get password(){
+      return this.props.password
+    }
+
 
     public static isEmail(email:string){    
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
