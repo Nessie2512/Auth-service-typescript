@@ -7,8 +7,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Post("/register")
-  register(@Body() payload:registerDTO): string {
-    return this.appService.userRegister(payload);
+  public async register(@Body() payload:registerDTO) {
+    await this.appService.userRegister(payload);
   }
 
 

@@ -10,9 +10,8 @@ export class prismaRepository implements IUserRepository{
 
     constructor(private readonly prismaClient: PrismaService){}
 
-    public async register(data: registerDTO): Promise<void> {
+    public async register(newUser: User): Promise<void> {
         
-        const newUser = User.create(data.username,data.email,data.password);
         const userMapped = userMapper.toTable(newUser);
 
         await this.prismaClient.user.create(

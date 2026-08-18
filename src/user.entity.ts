@@ -1,4 +1,4 @@
-import { error } from "console";
+
 import { entity } from "./entity";
 
 type userType ={
@@ -15,6 +15,8 @@ export class User extends entity<userType>{
 
     public static create(username:string, email:string,password:string,id?:string){
 
+      console.log(username,email,password)
+
         if (
              this.isEmail(email) === true 
              && this.isUsername(username).valido === true 
@@ -24,7 +26,7 @@ export class User extends entity<userType>{
                 return new User({username,email,password},id)
             }
 
-            throw new error("not valid data")
+            throw new Error("not valid data")
         
     }
 
@@ -44,7 +46,7 @@ export class User extends entity<userType>{
     }
 
 
-    public static isEmail(email:string){    
+    public static isEmail(email:string){  
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     }
@@ -56,26 +58,31 @@ export class User extends entity<userType>{
   
   if (password.length < 8) {
     erros.push('Deve ter pelo menos 8 caracteres.');
+    console.log("password.length < 8")
   }
 
   
   if (!/[A-Z]/.test(password)) {
     erros.push('Deve conter pelo menos uma letra maiúscula.');
+    console.log("!/[A-Z]/.test(password)")
   }
 
   
   if (!/[a-z]/.test(password)) {
     erros.push('Deve conter pelo menos uma letra minúscula.');
+    console.log("!/[a-z]/")
   }
 
   
   if (!/[0-9]/.test(password)) {
     erros.push('Deve conter pelo menos um número.');
+    console.log("!/[0-9]/")
   }
 
   
   if (!/[^A-Za-z0-9]/.test(password)) {
     erros.push('Deve conter pelo menos um caráter especial (ex: @, #, $, !).');
+    console.log("!/[^A-Za-z0-9]/")
   }
 
   return {
