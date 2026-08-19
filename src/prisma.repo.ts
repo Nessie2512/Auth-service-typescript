@@ -4,6 +4,7 @@ import { PrismaService } from "./prisma/prisma.service";
 import { User } from "./user.entity";
 import { userMapper } from "./user.mapper";
 import { hashService } from "./hashService";
+import { loginDTO } from "./login.dto";
 
 @Injectable()
 export class prismaRepository implements IUserRepository{
@@ -29,5 +30,14 @@ export class prismaRepository implements IUserRepository{
         )
 
         
+    }
+
+    public async login(data: loginDTO): Promise<any> {
+        
+        return await this.prismaClient.user.findFirst({
+            where:{
+                email: data.email
+            }
+        })
     }
 } 

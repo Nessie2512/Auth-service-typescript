@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { registerDTO } from './register.dto';
+import { loginDTO } from './login.dto';
 
 @Controller("user")
 export class AppController {
@@ -12,7 +13,7 @@ export class AppController {
   }
 
   @Post('/login')
-  public async login(@Body() user: {email:string, password:string}) {
+  public async login(@Body() user: loginDTO) {
     return this.appService.login(user)
   }
 
