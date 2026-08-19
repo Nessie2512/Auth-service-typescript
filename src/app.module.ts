@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { register } from './register.usecase';
-import { IUserRepository } from './user.repository';
+import { IUserRepository } from './IUser.repository';
 import { prismaRepository } from './prisma.repo';
 import { hashService } from './hashService';
 import { bycryptHashingService } from './bycryptHashing.service';

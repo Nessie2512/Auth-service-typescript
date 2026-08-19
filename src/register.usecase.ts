@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { registerDTO } from "./register.dto";
 import { User } from "./user.entity";
-import { IUserRepository } from "./user.repository";
+import { IUserRepository } from "./IUser.repository";
 
 export namespace register{
     
