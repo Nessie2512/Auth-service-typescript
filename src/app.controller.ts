@@ -11,6 +11,11 @@ export class AppController {
     await this.appService.userRegister(payload);
   }
 
+  @Post('/login')
+  public async login(@Body() user: {email:string, password:string}) {
+    return this.appService.login(user)
+  }
+
 
 
 
