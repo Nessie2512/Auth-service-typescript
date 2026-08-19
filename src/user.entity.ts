@@ -15,8 +15,6 @@ export class User extends entity<userType>{
 
     public static create(username:string, email:string,password:string,id?:string){
 
-      console.log(username,email,password)
-
         if (
              this.isEmail(email) === true 
              && this.isUsername(username).valido === true 
