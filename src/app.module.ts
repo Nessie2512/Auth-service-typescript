@@ -7,6 +7,7 @@ import { IUserRepository } from './IUser.repository';
 import { prismaRepository } from './prisma.repo';
 import { hashService } from './hashService';
 import { bycryptHashingService } from './bycryptHashing.service';
+import { UsersService } from './users.service';
 import { login } from './login.usecase';
 import { JwtService } from '@nestjs/jwt';
 
@@ -25,7 +26,9 @@ import { JwtService } from '@nestjs/jwt';
     {
       provide: hashService,
       useClass: bycryptHashingService
-    }
+    },
+
+    UsersService
 
   ],
 })
